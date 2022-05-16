@@ -5,6 +5,8 @@ import LoginModal from "./LoginModal";
 import LogOutButton from "./LogOutButton";
 
 function Title() {
+
+    // put in log in context for the token
     return(
         <>
             <Container>
