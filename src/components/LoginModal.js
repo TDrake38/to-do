@@ -2,10 +2,8 @@ import React from "react";
 import { Button, Modal, Form} from "react-bootstrap"
 
 
-
-
 function MyModal(props) {
-    // const [token, setToken] = useContextPersisted(LoginContext, "token")
+    //  const [token, setToken] = useContextPersisted(LoginContext, "token")
   
     // const buttonSubmit = async (e) => {
     //   e.preventDefault();
