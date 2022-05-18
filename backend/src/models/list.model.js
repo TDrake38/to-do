@@ -13,7 +13,7 @@ List.ToDoByID = async (id) => {
 }
 
 //This is to query for a spesific item
-Tool.oneToDo = async (toDoID) => {
+List.oneToDo = async (toDoID) => {
     const oneToDo = await queryDB('SELECT * FROM items WHERE id = $1', [toDoID]);
     return oneToDo.rows[0];
 }
