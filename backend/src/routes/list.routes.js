@@ -2,7 +2,7 @@ const { findItems, createToDo, deleteToDo, getItemsByID } = require('../controll
 
 const registerToDo = (app) => { 
     app.get('/findItem', findItems)
-    app.post('/toDo', createToDo)
+    app.post('/create', createToDo)
     app.delete('/toDo/:id', deleteToDo)
     app.get('/getList', getItemsByID)
 };

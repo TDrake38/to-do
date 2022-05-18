@@ -12,6 +12,7 @@ function InputToDo() {
                 aria-describedby="inputGroup-sizing-default"
                 />
                 <Button variant="dark">Add</Button>
+                <Button variant="dark">Remove Completed</Button>
             </InputGroup>
     )
 }
