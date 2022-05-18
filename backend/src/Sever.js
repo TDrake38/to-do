@@ -1,5 +1,6 @@
 const userAuth = require('./routes/auth.routes')
 const {checkIsAuthenticated} = require('./controllers/auth.controller')
+const registerToDo = require('./routes/list.routes')
 
 
 // Server stuff
@@ -15,6 +16,7 @@ app.use(checkIsAuthenticated)
 app.use(express.urlencoded({ extended: false }))
 
 userAuth(app);
+registerToDo(app);
 
 
 console.log("hello");
