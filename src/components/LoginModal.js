@@ -10,7 +10,6 @@ const login = async ({ username, password}) => {
   return accessToken;
 }
 
-
 function MyModal(props) {
      const [token, setToken] = useContextPersisted(LoginContext, "token")
   
