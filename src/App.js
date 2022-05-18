@@ -3,6 +3,8 @@ import { Container } from 'react-bootstrap';
 import LoginContext from './LoginContext';
 import Title from './components/Title';
 import Home from "./components/Home"
+import List from './components/List';
+import {Route, BrowserRouter, Routes, Navigate } from "react-router-dom"
 
 
 function App() {
@@ -10,12 +12,20 @@ function App() {
 
   return (
     <>
-      <LoginContext.Provider value={[loggedIn, setLoggedIn]}>
-        <Container>
+      <BrowserRouter>
+        <LoginContext.Provider value={[loggedIn, setLoggedIn]}>
           <Title/>
-        </Container>
-        <Home/>
-      </LoginContext.Provider>
+          <Container>
+            <Routes>
+              <Route path="/" exact component={Title}/>
+              <Route path="/todo">            
+                {loggedIn ? <Home /> : <Navigate to="/"/>}
+              </Route>
+              <Route render={() => <div>404</div>} />
+            </Routes>
+          </Container>
+        </LoginContext.Provider>
+      </BrowserRouter>
     </>
   );
 }

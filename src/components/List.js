@@ -1,14 +1,14 @@
-import React from "react";
-import { Button, Modal, Form } from "react-bootstrap";
+import React, { useContext } from "react";
 import "./List.css";
+import LoginContext from "../LoginContext";
 
 function List() {
-
+    
     
     return(
         <>
             <ul>
-                <li><input type="checkbox"></input></li>
+
             </ul>
         </>
     )

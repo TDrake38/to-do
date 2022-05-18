@@ -1,16 +1,25 @@
 import React from "react";
 import { Button, Modal, Form} from "react-bootstrap"
+import LoginContext from "../LoginContext";
+import { useContextPersisted } from "./Hooks";
+
+const login = async ({ username, password}) => {
+  const body = { username: username, password: password };
+  const response = await fetch("http://localhost:3001/login", { body: JSON.stringify(body), headers: {'Content-Type': 'application/json'}, method: "POST" } );
+  const { accessToken } = await response.json()
+  return accessToken;
+}
 
 
 function MyModal(props) {
-    //  const [token, setToken] = useContextPersisted(LoginContext, "token")
+     const [token, setToken] = useContextPersisted(LoginContext, "token")
   
-    // const buttonSubmit = async (e) => {
-    //   e.preventDefault();
-    //   const token = await login({ username: e.target.elements.username.value, password: e.target.elements.password.value });
-    //   localStorage.setItem("token", JSON.stringify(token));
-    //   setToken(token)
-    // }
+    const buttonSubmit = async (e) => {
+      e.preventDefault();
+      const token = await login({ username: e.target.elements.username.value, password: e.target.elements.password.value });
+      localStorage.setItem("token", JSON.stringify(token));
+      setToken(token)
+    }
   
     return (
       <Modal
@@ -24,7 +33,7 @@ function MyModal(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form /*onSubmit={buttonSubmit}*/>
+          <Form onSubmit={buttonSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Username</Form.Label>
               <Form.Control type="text" placeholder="Username" id="username" name="username"/>
