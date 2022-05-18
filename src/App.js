@@ -16,13 +16,14 @@ function App() {
         <LoginContext.Provider value={[loggedIn, setLoggedIn]}>
           <Title/>
           <Container>
-            <Routes>
+            {/* <Routes>
               <Route path="/" exact component={Title}/>
               <Route path="/todo">            
                 {loggedIn ? <Home /> : <Navigate to="/"/>}
               </Route>
               <Route render={() => <div>404</div>} />
-            </Routes>
+            </Routes> */}
+            <Home/>
           </Container>
         </LoginContext.Provider>
       </BrowserRouter>
